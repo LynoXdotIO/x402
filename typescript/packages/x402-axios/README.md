@@ -1,11 +1,11 @@
-# x402-axios
+# @lynoxdotio/x402-axios
 
 A utility package that extends Axios to automatically handle 402 Payment Required responses using the x402 payment protocol. This package enables seamless integration of payment functionality into your applications when making HTTP requests with Axios.
 
 ## Installation
 
 ```bash
-npm install x402-axios
+npm install @lynoxdotio/x402-axios
 ```
 
 ## Quick Start
@@ -13,7 +13,7 @@ npm install x402-axios
 ```typescript
 import { createWalletClient, http } from "viem";
 import { privateKeyToAccount } from "viem/accounts";
-import { withPaymentInterceptor } from "x402-axios";
+import { withPaymentInterceptor } from "@lynoxdotio/x402-axios";
 import axios from "axios";
 import { arcTestnet } from "viem/chains";
 

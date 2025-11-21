@@ -1,15 +1,15 @@
 import type { Context } from "hono";
 import { Address, getAddress } from "viem";
 import { Address as SolanaAddress } from "@solana/kit";
-import { exact } from "x402/schemes";
+import { exact } from "@lynoxdotio/x402/schemes";
 import {
   computeRoutePatterns,
   findMatchingPaymentRequirements,
   findMatchingRoute,
   processPriceToAtomicAmount,
   toJsonSafe,
-} from "x402/shared";
-import { getPaywallHtml } from "x402/paywall";
+} from "@lynoxdotio/x402/shared";
+import { getPaywallHtml } from "@lynoxdotio/x402/paywall";
 import {
   ERC20TokenAmount,
   FacilitatorConfig,
@@ -22,8 +22,8 @@ import {
   PaywallConfig,
   SupportedEVMNetworks,
   SupportedSVMNetworks,
-} from "x402/types";
-import { useFacilitator } from "x402/verify";
+} from "@lynoxdotio/x402/types";
+import { useFacilitator } from "@lynoxdotio/x402/verify";
 
 /**
  * Creates a payment middleware factory for Hono
@@ -36,12 +36,12 @@ import { useFacilitator } from "x402/verify";
  *
  * @example
  * ```typescript
- * // Simple configuration - All endpoints are protected by $0.01 of USDC on base-sepolia
+ * // Simple configuration - All endpoints are protected by $0.01 of USDC on arc-testnet
  * app.use(paymentMiddleware(
  *   '0x123...', // payTo address
  *   {
  *     price: '$0.01', // USDC amount in dollars
- *     network: 'base-sepolia'
+ *     network: 'arc-testnet'
  *   },
  *   // Optional facilitator configuration. Defaults to x402.org/facilitator for testnet usage
  * ));
@@ -51,7 +51,7 @@ import { useFacilitator } from "x402/verify";
  *   {
  *     '/weather/*': {
  *       price: '$0.001', // USDC amount in dollars
- *       network: 'base',
+ *       network: 'arc-testnet',
  *       config: {
  *         description: 'Access to weather data'
  *       }
@@ -231,7 +231,7 @@ export function paymentMiddleware(
               typeof getPaywallHtml
             >[0]["paymentRequirements"],
             currentUrl,
-            testnet: network === "base-sepolia",
+            testnet: network === "arc-testnet",
             cdpClientKey: paywall?.cdpClientKey,
             appName: paywall?.appName,
             appLogo: paywall?.appLogo,
@@ -342,5 +342,5 @@ export type {
   Resource,
   RouteConfig,
   RoutesConfig,
-} from "x402/types";
+} from "@lynoxdotio/x402/types";
 export type { Address as SolanaAddress } from "@solana/kit";

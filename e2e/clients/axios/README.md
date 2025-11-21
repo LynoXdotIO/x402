@@ -1,6 +1,6 @@
-# x402-axios Example Client
+# @lynoxdotio/x402-axios Example Client
 
-This is an example client that demonstrates how to use the `x402-axios` package to make HTTP requests to endpoints protected by the x402 payment protocol.
+This is an example client that demonstrates how to use the `@lynoxdotio/x402-axios` package to make HTTP requests to endpoints protected by the x402 payment protocol.
 
 ## Prerequisites
 
@@ -47,7 +47,7 @@ The example demonstrates how to:
 import { config } from "dotenv";
 import { createWalletClient, http, publicActions } from "viem";
 import { privateKeyToAccount } from "viem/accounts";
-import { withPaymentInterceptor } from "x402-axios";
+import { withPaymentInterceptor } from "@lynoxdotio/x402-axios";
 import axios from "axios";
 import { arcTestnet } from "viem/chains";
 

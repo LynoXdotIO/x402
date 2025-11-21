@@ -2,15 +2,15 @@ import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 import { Address, getAddress } from "viem";
 import type { Address as SolanaAddress } from "@solana/kit";
-import { exact } from "x402/schemes";
+import { exact } from "@lynoxdotio/x402/schemes";
 import {
   computeRoutePatterns,
   findMatchingPaymentRequirements,
   findMatchingRoute,
   processPriceToAtomicAmount,
   toJsonSafe,
-} from "x402/shared";
-import { getPaywallHtml } from "x402/paywall";
+} from "@lynoxdotio/x402/shared";
+import { getPaywallHtml } from "@lynoxdotio/x402/paywall";
 import {
   FacilitatorConfig,
   moneySchema,
@@ -22,9 +22,9 @@ import {
   ERC20TokenAmount,
   SupportedEVMNetworks,
   SupportedSVMNetworks,
-} from "x402/types";
-import { useFacilitator } from "x402/verify";
-import { safeBase64Encode } from "x402/shared";
+} from "@lynoxdotio/x402/types";
+import { useFacilitator } from "@lynoxdotio/x402/verify";
+import { safeBase64Encode } from "@lynoxdotio/x402/shared";
 
 import { POST } from "./api/session-token";
 
@@ -72,7 +72,7 @@ import { POST } from "./api/session-token";
  *           }
  *         }
  *       },
- *       network: 'base'
+ *       network: 'arc-testnet'
  *     }
  *   },
  *   {
@@ -239,7 +239,7 @@ export function paymentMiddleware(
                 typeof getPaywallHtml
               >[0]["paymentRequirements"],
               currentUrl: request.url,
-              testnet: network === "base-sepolia",
+              testnet: network === "arc-testnet",
               cdpClientKey: paywall?.cdpClientKey,
               appLogo: paywall?.appLogo,
               appName: paywall?.appName,
@@ -358,7 +358,7 @@ export type {
   Resource,
   RouteConfig,
   RoutesConfig,
-} from "x402/types";
+} from "@lynoxdotio/x402/types";
 export type { Address as SolanaAddress } from "@solana/kit";
 
 // Export session token API handlers for Onramp

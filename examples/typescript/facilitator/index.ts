@@ -1,7 +1,7 @@
 /* eslint-env node */
 import { config } from "dotenv";
 import express, { Request, Response } from "express";
-import { verify, settle } from "x402/facilitator";
+import { verify, settle } from "@lynoxdotio/x402/facilitator";
 import {
   PaymentRequirementsSchema,
   type PaymentRequirements,
@@ -13,7 +13,7 @@ import {
   Signer,
   ConnectedClient,
   SupportedPaymentKind,
-} from "x402/types";
+} from "@lynoxdotio/x402/types";
 
 config();
 

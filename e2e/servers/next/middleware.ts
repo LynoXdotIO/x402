@@ -1,5 +1,5 @@
 import { Address } from "viem";
-import { paymentMiddleware, Network } from "x402-next";
+import { paymentMiddleware, Network } from "@lynoxdotio/x402-next";
 
 const facilitatorUrl = process.env.FACILITATOR_URL as `${string}://${string}`;
 const payTo = process.env.EVM_ADDRESS as Address;

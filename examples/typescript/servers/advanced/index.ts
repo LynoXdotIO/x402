@@ -1,6 +1,6 @@
 import { config } from "dotenv";
 import express from "express";
-import { exact } from "x402/schemes";
+import { exact } from "@lynoxdotio/x402/schemes";
 import {
   Network,
   PaymentPayload,
@@ -8,9 +8,12 @@ import {
   Price,
   Resource,
   settleResponseHeader,
-} from "x402/types";
-import { useFacilitator } from "x402/verify";
-import { processPriceToAtomicAmount, findMatchingPaymentRequirements } from "x402/shared";
+} from "@lynoxdotio/x402/types";
+import { useFacilitator } from "@lynoxdotio/x402/verify";
+import {
+  processPriceToAtomicAmount,
+  findMatchingPaymentRequirements,
+} from "@lynoxdotio/x402/shared";
 
 config();
 

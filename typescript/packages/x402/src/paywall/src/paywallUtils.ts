@@ -28,7 +28,7 @@ export function normalizePaymentRequirements(
  */
 export function getPreferredNetworks(testnet: boolean): Network[] {
   if (testnet) {
-    return ["base-sepolia", "solana-devnet"];
+    return ["base-sepolia", "solana-devnet", "arc-testnet"];
   }
   return ["base", "solana"];
 }

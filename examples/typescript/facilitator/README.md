@@ -1,6 +1,6 @@
 # x402 Facilitator Example
 
-This is an example implementation of an x402 facilitator service that handles payment verification and settlement for the x402 payment protocol. This implementation is for learning purposes and demonstrates how to build a facilitator service.
+This is an example implementation of an @lynoxdotio/x402 facilitator service that handles payment verification and settlement for the x402 payment protocol. This implementation is for learning purposes and demonstrates how to build a facilitator service.
 
 For production use, we recommend using:
 
@@ -111,4 +111,3 @@ Request body:
 This example is designed to help you understand how x402 facilitators work. For more information about the x402 protocol and its implementation, visit:
 
 - [x402 Protocol Documentation](https://x402.org)
-

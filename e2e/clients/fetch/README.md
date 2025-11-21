@@ -1,6 +1,6 @@
-# x402-fetch Example Client
+# @lynoxdotio/x402-fetch Example Client
 
-This is an example client that demonstrates how to use the `x402-fetch` package to make HTTP requests to endpoints protected by the x402 payment protocol.
+This is an example client that demonstrates how to use the `@lynoxdotio/x402-fetch` package to make HTTP requests to endpoints protected by the x402 payment protocol.
 
 ## Prerequisites
 
@@ -47,7 +47,7 @@ The example demonstrates how to:
 import { config } from "dotenv";
 import { createWalletClient, http } from "viem";
 import { privateKeyToAccount } from "viem/accounts";
-import { wrapFetchWithPayment } from "x402-fetch";
+import { wrapFetchWithPayment } from "@lynoxdotio/x402-fetch";
 import { arcTestnet } from "viem/chains";
 
 config();
