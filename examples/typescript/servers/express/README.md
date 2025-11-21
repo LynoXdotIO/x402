@@ -1,6 +1,6 @@
 # x402-express Example Server
 
-This is an example Express.js server that demonstrates how to use the `x402-express` middleware to implement paywall functionality in your API endpoints.
+This is an example Express.js server that demonstrates how to use the `@lynoxdotio/x402-express` middleware to implement paywall functionality in your API endpoints.
 
 ## Prerequisites
 
@@ -17,6 +17,7 @@ cp .env-local .env
 ```
 
 2. Install and build all packages from the typescript examples root:
+
 ```bash
 cd ../../
 pnpm install
@@ -25,6 +26,7 @@ cd servers/express
 ```
 
 3. Run the server
+
 ```bash
 pnpm install
 pnpm dev
@@ -35,6 +37,7 @@ pnpm dev
 You can test the server using one of the example clients:
 
 ### Using the Fetch Client
+
 ```bash
 cd ../clients/fetch
 # Ensure .env is setup
@@ -43,6 +46,7 @@ pnpm dev
 ```
 
 ### Using the Axios Client
+
 ```bash
 cd ../clients/axios
 # Ensure .env is setup
@@ -51,6 +55,7 @@ pnpm dev
 ```
 
 These clients will demonstrate how to:
+
 1. Make an initial request to get payment requirements
 2. Process the payment requirements
 3. Make a second request with the payment token
@@ -62,6 +67,7 @@ The server includes a single example endpoint at `/weather` that requires a paym
 ## Response Format
 
 ### Payment Required (402)
+
 ```json
 {
   "error": "X-PAYMENT header is required",
@@ -82,6 +88,7 @@ The server includes a single example endpoint at `/weather` that requires a paym
 ```
 
 ### Successful Response
+
 ```ts
 // Body
 {
@@ -103,30 +110,27 @@ To add more paid endpoints, follow this pattern:
 ```typescript
 // First, configure the payment middleware with your routes
 app.use(
-  paymentMiddleware(
-    payTo,
-    {
-      // Define your routes and their payment requirements
-      "GET /your-endpoint": {
-        price: "$0.10",
-        network: "arc-testnet",
-      },
-      "/premium/*": {
-        price: {
-          amount: "100000",
-          asset: {
-            address: "0xabc",
-            decimals: 6,
-            eip712: {
-              name: "USDC",
-              version: "1",
-            },
+  paymentMiddleware(payTo, {
+    // Define your routes and their payment requirements
+    "GET /your-endpoint": {
+      price: "$0.10",
+      network: "arc-testnet",
+    },
+    "/premium/*": {
+      price: {
+        amount: "100000",
+        asset: {
+          address: "0xabc",
+          decimals: 6,
+          eip712: {
+            name: "USDC",
+            version: "1",
           },
         },
-        network: "arc-testnet",
       },
+      network: "arc-testnet",
     },
-  ),
+  }),
 );
 
 // Then define your routes as normal

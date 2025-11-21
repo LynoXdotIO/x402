@@ -1,11 +1,11 @@
-# x402-next
+# @lynoxdotio/x402-next
 
 Next.js middleware integration for the x402 Payment Protocol. This package allows you to easily add paywall functionality to your Next.js applications using the x402 protocol.
 
 ## Installation
 
 ```bash
-npm install x402-next
+npm install @lynoxdotio/x402-next
 ```
 
 ## Quick Start
@@ -13,7 +13,7 @@ npm install x402-next
 Create a middleware file in your Next.js project (e.g., `middleware.ts`):
 
 ```typescript
-import { paymentMiddleware, Network } from "x402-next";
+import { paymentMiddleware, Network } from "@lynoxdotio/x402-next";
 
 export const middleware = paymentMiddleware("0xYourAddress", {
   "/protected": {

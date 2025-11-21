@@ -1,9 +1,10 @@
 import { OnchainKitProvider } from "@coinbase/onchainkit";
 import type { ReactNode } from "react";
-import { base, baseSepolia } from "viem/chains";
+import { baseSepolia } from "viem/chains";
 
 import { choosePaymentRequirement, isEvmNetwork } from "./paywallUtils";
 import "./window.d.ts";
+import { arcTestnet } from "../../types/shared/custom-chains";
 
 type ProvidersProps = {
   children: ReactNode;
@@ -24,7 +25,7 @@ export function Providers({ children }: ProvidersProps) {
     return <>{children}</>;
   }
 
-  const chain = selectedRequirement.network === "base-sepolia" ? baseSepolia : base;
+  const chain = selectedRequirement.network === "arc-testnet" ? arcTestnet : baseSepolia;
 
   return (
     <OnchainKitProvider

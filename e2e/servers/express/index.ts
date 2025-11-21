@@ -1,5 +1,5 @@
 import express from "express";
-import { Network, paymentMiddleware } from "x402-express";
+import { Network, paymentMiddleware } from "@lynoxdotio/x402-express";
 import dotenv from "dotenv";
 
 dotenv.config();
