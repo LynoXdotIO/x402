@@ -23,7 +23,16 @@ jobs:
         run: uv sync --all-extras --dev
 
       - name: Run Tests
-        run: uv run python -m pytest
+        run: |
+          set +e
+          uv run python -m pytest
+          code=$?
+          if [ $code -eq 5 ]; then
+            echo "No tests found, treating as success."
+            exit 0
+          else
+            exit $code
+          fi
 
   lint-python:
     runs-on: ubuntu-latest
