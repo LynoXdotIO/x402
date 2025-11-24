@@ -16,15 +16,15 @@ import { useFacilitator } from "@lynoxdotio/x402/verify";
 import { paymentMiddleware } from "./index";
 
 // Mock dependencies
-vi.mock("x402/verify", () => ({
+vi.mock("@lynoxdotio/x402/verify", () => ({
   useFacilitator: vi.fn(),
 }));
 
-vi.mock("x402/paywall", () => ({
+vi.mock("@lynoxdotio/x402/paywall", () => ({
   getPaywallHtml: vi.fn(),
 }));
 
-vi.mock("x402/shared", async importOriginal => {
+vi.mock("@lynoxdotio/x402/shared", async importOriginal => {
   const actual = (await importOriginal()) as Record<string, unknown>;
   return {
     ...actual,
@@ -83,11 +83,11 @@ vi.mock("x402/shared", async importOriginal => {
   };
 });
 
-vi.mock("x402/shared/evm", () => ({
+vi.mock("@lynoxdotio/x402/shared/evm", () => ({
   getUsdcAddressForChain: vi.fn().mockReturnValue("0x036CbD53842c5426634e7929541eC2318f3dCF7e"),
 }));
 
-vi.mock("x402/schemes", () => ({
+vi.mock("@lynoxdotio/x402/schemes", () => ({
   exact: {
     evm: {
       decodePayment: vi.fn(),
