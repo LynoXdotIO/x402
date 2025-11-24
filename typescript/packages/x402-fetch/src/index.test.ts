@@ -2,7 +2,7 @@ import { describe, it, expect, vi, beforeEach } from "vitest";
 import { wrapFetchWithPayment } from "./index";
 import { evm, PaymentRequirements } from "@lynoxdotio/x402/types";
 
-vi.mock("x402/client", () => ({
+vi.mock("@lynoxdotio/x402/client", () => ({
   createPaymentHeader: vi.fn(),
   selectPaymentRequirements: vi.fn(),
 }));
